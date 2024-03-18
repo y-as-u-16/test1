@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+main {
+  width: 50%;
+  background: #eee;
+  height: 500px;
+  margin: 50px auto 0;
+  text-align: center;
+}
+
+main p {
+  font-size: 32px;
+}
+
+
+main button {
+  margin: 30px auto 0;
+}
