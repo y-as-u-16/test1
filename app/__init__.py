@@ -7,14 +7,18 @@ mysql = MySQL()
 def create_app():
     app = Flask(__name__)
 
+    # MySQLの設定
     app.config['MYSQL_HOST'] = 'db'
     app.config['MYSQL_USER'] = 'user'
     app.config['MYSQL_PASSWORD'] = 'password'
     app.config['MYSQL_DB'] = 'mydatabase'
 
+    # MySQLをアプリケーションに初期化
     mysql.init_app(app)
 
-    with app.app_context():
-        from .views import view1, view2
+    # Blueprintをインポートしてアプリケーションに登録
+    from .views import view1, view2
+    app.register_blueprint(view1.bp)  # view1のBlueprintを登録
+    # app.register_blueprint(view2.bp)  # view2がBlueprintを使う場合、同様に登録
 
     return app
