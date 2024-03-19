@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-
+<!-- ログインページのHTML -->
 <head>
     <meta charset="UTF-8">
     <title>ログイン</title>
@@ -13,7 +13,7 @@
     <main>
         <div class="login_form">
             <h2>ログイン</h2>
-            <form method="post">
+            <form id="login" method="post">
                 <div>
                     <label for="username">ユーザー名:</label>
                     <input type="text" id="username" name="username" class="cool">
@@ -24,6 +24,7 @@
                 </div>
                 <button class="common_btn" type="submit"><span>ログイン</span></button>
             </form>
+            <button id="signUpBtn" class="common_btn" type="submit"><span>新規登録</span></button>
         </div>
     </main>
     <script src="../static/js/login.js"></script>

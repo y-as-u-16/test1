@@ -1,10 +1,14 @@
+# ログイン画面のPythonファイル
+
+
 # Flaskのリクエスト関連の関数とクラスをインポート
 from flask import Blueprint, request, render_template, redirect, url_for
 # MySQLインスタンスを直接インポート
 from .. import mysql  # 相対インポートを使用してmysqlインスタンスをインポート
 
+
 # Blueprintオブジェクトの作成
-bp = Blueprint('view1', __name__)
+bp = Blueprint('login', __name__)
 
 # ログインページ
 @bp.route('/', methods=['GET', 'POST'])
@@ -19,7 +23,7 @@ def login():
         account = cur.fetchone()
 
         if account:
-            return redirect(url_for('view1.top'))  # Blueprint名.view関数名
+            return redirect(url_for('login.top'))  # Blueprint名.view関数名
         else:
             return render_template('reverseForLogin.html')
     return render_template('login.html')
@@ -28,3 +32,7 @@ def login():
 @bp.route('/top')
 def top():
     return render_template('top.html')
+
+@bp.route('/signup')
+def sign_up():
+    return render_template('signup.html')
