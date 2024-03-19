@@ -1,5 +1,7 @@
 # Flaskのリクエスト関連の関数とクラスをインポート
-from flask import Blueprint, request, render_template, redirect, url_for, current_app
+from flask import Blueprint, request, render_template, redirect, url_for
+# MySQLインスタンスを直接インポート
+from .. import mysql  # 相対インポートを使用してmysqlインスタンスをインポート
 
 # Blueprintオブジェクトの作成
 bp = Blueprint('view1', __name__)
@@ -11,8 +13,6 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # MySQLオブジェクトへのアクセスが必要な場合は、current_appを使用
-        mysql = current_app.extensions['mydatabase']
         cur = mysql.connection.cursor()
         
         cur.execute("SELECT * FROM users WHERE id=%s AND password=%s", (username, password))

@@ -17,7 +17,7 @@ def create_app():
     mysql.init_app(app)
 
     # Blueprintをインポートしてアプリケーションに登録
-    from .views import view1, view2
+    from .views import view1
     app.register_blueprint(view1.bp)  # view1のBlueprintを登録
     # app.register_blueprint(view2.bp)  # view2がBlueprintを使う場合、同様に登録
 
